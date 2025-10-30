@@ -371,12 +371,13 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   }
 
   void _downloadCV() async{
-    const localPath = 'assets/Thanweer  flutter_Developer-1.pdf';
-    final uri = Uri.parse(localPath);
-    if (!await launchUrl(uri)) {
-    ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(content: Text('CV file not found')),
-    );
+    const cvUrl = 'https://drive.google.com/file/d/1GP1xTpz2qIPujsBC04GjpGX-AvL2P7wN/preview';
+    final uri = Uri.parse(cvUrl);
+
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Could not open CV link')),
+      );
     }
   }
 }
