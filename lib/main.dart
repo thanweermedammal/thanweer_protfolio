@@ -90,6 +90,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
           NavigationDestination(icon: Icon(Icons.code), label: 'Skills'),
           NavigationDestination(icon: Icon(Icons.timeline), label: 'Experience'),
           NavigationDestination(icon: Icon(Icons.school), label: 'Education'),
+          NavigationDestination(icon: Icon(Icons.mail), label: 'Contact'),
         ],
       ),
     );
@@ -156,18 +157,22 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 ),
                 const SizedBox(height: 12),
                 Row(children: [
-                  ElevatedButton.icon(
-                    onPressed: () => _launchLink(linkedInUrl),
-                    icon: const FaIcon(FontAwesomeIcons.linkedin),
-                    label: const Text('LinkedIn'),
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.blue.shade800),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () => _launchLink(linkedInUrl),
+                      icon: const FaIcon(FontAwesomeIcons.linkedin),
+                      label: const Text('LinkedIn'),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.blue.shade800),
+                    ),
                   ),
                   const SizedBox(width: 12),
-                  OutlinedButton.icon(
-                    onPressed: () => _downloadCV(),
-                    icon: const Icon(Icons.download),
-                    label: const Text('Download CV'),
-                    style: OutlinedButton.styleFrom(backgroundColor: Colors.white24, foregroundColor: Colors.white),
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: () => _downloadCV(),
+                      icon: const Icon(Icons.download),
+                      label: const Text('Download CV'),
+                      style: OutlinedButton.styleFrom(backgroundColor: Colors.white24, foregroundColor: Colors.white),
+                    ),
                   )
                 ])
               ]),
